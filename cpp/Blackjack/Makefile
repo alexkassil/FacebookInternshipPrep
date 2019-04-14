@@ -1,14 +1,19 @@
 CC=g++
-CFLAGS=-std=c++14
-
+CFLAGS=-std=c++17
+CPPS := Card.cpp Deck.cpp
+HS := Card.h Deck.h
 .DEFAULT_GOAL := main
 
-test: Card.cpp Card.h test.cpp
-	@$(CC) $(CFLAGS) -o test Card.cpp Card.h test.cpp -isystem catch2
+test: test.cpp Card.cpp Card.h 
+	@rm -f test
+	@$(CC) $(CFLAGS) -o test $(CPPS) $(HS) test.cpp -isystem catch2
 	@./test
 
-main:
-	@$(CC) $(CFLAGS) -o game Card.cpp Card.h main.cpp
+main: Card.cpp Card.h main.cpp
+	@rm -f game
+	@$(CC) $(CFLAGS) -o game $(CPPS) $(HS) main.cpp
 	@./game
 
-
+clean:
+	@rm -f test
+	@rm -f game

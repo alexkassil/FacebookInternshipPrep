@@ -1,3 +1,5 @@
+#ifndef CARD_H
+#define CARD_H
 #include <iostream>
 
 enum Suit {Hearts, Clubs, Diamonds, Spades};
@@ -5,6 +7,7 @@ enum Rank {Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Quee
 
 class Card {
 public:
+	Card();
 	Card(Suit s, Rank r);
 	Suit suit();
 	Rank rank();
@@ -15,3 +18,5 @@ private:
 	Suit su;
 	Rank ra;
 };
+
+#endif

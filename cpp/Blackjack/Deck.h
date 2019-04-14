@@ -10,5 +10,5 @@ public:
 private:
 	Card* crds;
 	int ptr;
-	const int sz;
+	int sz;
 };

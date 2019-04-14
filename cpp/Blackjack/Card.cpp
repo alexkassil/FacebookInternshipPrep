@@ -4,8 +4,9 @@
 const char* SuitStrings[] = {"Hearts", "Clubs", "Diamonds", "Spades"};
 const char* RankStrings[] = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
 
-Card::Card(Suit s, Rank r)
-	:su{s}, ra{r} {
+Card::Card() = default;
+
+Card::Card(Suit s, Rank r) :su{s}, ra{r} {
 }
 
 Suit Card::suit() {
@@ -14,10 +15,6 @@ Suit Card::suit() {
 
 Rank Card::rank() {
 	return ra;
-}
-int Card::size()
-{
-	return sz;
 }
 
 int Card::toInt() {
