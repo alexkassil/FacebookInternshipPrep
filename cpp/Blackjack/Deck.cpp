@@ -36,5 +36,12 @@ Card Deck::deal() {
 }
 
 void Deck::shuffle() {
+	int rand;
+	for (int i = 0; i < sz; i++) {
+		rand = std::rand() % sz;
+		Card temp = crds[i];
+		crds[i] = crds[rand];
+		crds[rand] = temp;
+	}
 	ptr = 0;
 }

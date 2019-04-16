@@ -74,5 +74,4 @@ TEST_CASE( "Shuffling decks makes a difference", "[deck]") {
 		match = match && (d1.cards()[i].toInt() == d2.cards()[i].toInt());
 	}
 	CHECK_FALSE(match);
-	
 }
