@@ -23,6 +23,10 @@ int Card::toInt() const {
 	return s * 13 + r + 1;
 }
 
+int Card::score() {
+	return ra < 10 ? ra + 1 : 10;
+}
+
 std::ostream& operator<<(std::ostream &stream, const Card &c) {
 	int s = static_cast<int>(c.su);
 	int r = static_cast<int>(c.ra);

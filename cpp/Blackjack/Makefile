@@ -1,10 +1,10 @@
 CC=g++
 CFLAGS=-std=c++17
-CPPS := Card.cpp Deck.cpp
-HS := Card.h Deck.h
+CPPS := Card.cpp Deck.cpp Hand.cpp
+HS := Card.h Deck.h Hand.h
 .DEFAULT_GOAL := main
 
-test: test.cpp Card.cpp Card.h Deck.cpp Deck.h
+test: test.cpp $(CPPS) $(HS)
 	@rm -f test
 	@$(CC) $(CFLAGS) -o test $(CPPS) $(HS) test.cpp -isystem catch2
 	@./test
