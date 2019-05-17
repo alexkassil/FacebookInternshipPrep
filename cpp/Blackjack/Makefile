@@ -4,7 +4,7 @@ CPPS := Card.cpp Deck.cpp
 HS := Card.h Deck.h
 .DEFAULT_GOAL := main
 
-test: test.cpp Card.cpp Card.h 
+test: test.cpp Card.cpp Card.h Deck.cpp Deck.h
 	@rm -f test
 	@$(CC) $(CFLAGS) -o test $(CPPS) $(HS) test.cpp -isystem catch2
 	@./test

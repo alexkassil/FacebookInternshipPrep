@@ -36,6 +36,7 @@ Card Deck::deal() {
 }
 
 void Deck::shuffle() {
+	srand(time(0));
 	int rand;
 	for (int i = 0; i < sz; i++) {
 		rand = std::rand() % sz;
@@ -44,4 +45,12 @@ void Deck::shuffle() {
 		crds[rand] = temp;
 	}
 	ptr = 0;
+}
+
+Card* Deck::begin() {
+	return &crds[ptr];
+}
+
+Card* Deck::end() {
+	return &crds[ptr + sz];
 }

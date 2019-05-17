@@ -25,6 +25,16 @@ TEST_CASE( "Check toInt", "[card]" ) {
 	CHECK(c3.toInt() == 52);
 }
 
+
+TEST_CASE( "Check card == !=", "[card]" ) {
+	Card c1(Suit::Hearts, Rank::Ace);
+	Card c2(Suit::Hearts, Rank::Ace);
+	Card c3(Suit::Spades, Rank::Ace);
+	CHECK(c1 == c1);
+	CHECK(c1 == c2);
+	CHECK(c1 != c3);
+}
+
 TEST_CASE( "Deck initialized has all 52 cards", "[deck]") {
 	Deck d;
 	CHECK(d.size() == 52);
@@ -74,4 +84,18 @@ TEST_CASE( "Shuffling decks makes a difference", "[deck]") {
 		match = match && (d1.cards()[i].toInt() == d2.cards()[i].toInt());
 	}
 	CHECK_FALSE(match);
+}
+
+TEST_CASE( "Deck supports enhanced for loop", "[deck]") {
+	Deck d;
+	std::set<int> setOfNumbers;
+	int val;
+	for (Card c : d) {
+		val = c.toInt();
+		CHECK(setOfNumbers.count(val) == 0);
+		setOfNumbers.insert(val);
+	}
+	for (int i = 1; i <= 52; ++i) {
+		CHECK(setOfNumbers.count(i) == 1);
+	}
 }

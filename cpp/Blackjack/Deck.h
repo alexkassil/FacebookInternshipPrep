@@ -1,3 +1,4 @@
+#include <ctime>
 #include "Card.h"
 
 class Deck {
@@ -7,6 +8,8 @@ public:
 	Card* cards();
 	Card deal();
 	void shuffle();
+	Card* begin();
+	Card* end();
 private:
 	Card* crds;
 	int ptr;

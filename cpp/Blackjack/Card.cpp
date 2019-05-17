@@ -17,7 +17,7 @@ Rank Card::rank() {
 	return ra;
 }
 
-int Card::toInt() {
+int Card::toInt() const {
 	int s = static_cast<int>(su);
 	int r = static_cast<int>(ra);
 	return s * 13 + r + 1;
@@ -30,3 +30,10 @@ std::ostream& operator<<(std::ostream &stream, const Card &c) {
 	return stream;
 }
 
+bool Card::operator==(const Card& card) const {
+	return toInt() == card.toInt();
+}
+
+bool Card::operator!=(const Card& card) const {
+	return toInt() != card.toInt();
+}
